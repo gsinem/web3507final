@@ -289,8 +289,7 @@ function updateCourseSelector2() {
     }
  
    
-
-   function searchcourses() {
+     function searchcourses() {
           // Get the input from the search field and convert it to lower case
         var searchInput = document.getElementById('searchInput').value.toLowerCase();
         var studentTableBody = document.getElementById('studentTableBody');
@@ -308,7 +307,7 @@ function updateCourseSelector2() {
             
               // If the course name includes the search input, add the row to the student table body
             if ( courseName.includes(searchInput)) {
-                var newRow = studentTableBody.insertRow(-1);
+                var newRow = studentTableBody.insertRow(studentTableBody.rows.length);
 
                 for (var j = 0; j < 7; j++) {
                     var cell = newRow.insertCell(j);
@@ -318,8 +317,7 @@ function updateCourseSelector2() {
            
         }
         
-    }
-        
+    }   
     
 
 
