@@ -22,11 +22,11 @@ function addStudentData() {
     var selectedCourseName = courseSelector.options[courseSelector.selectedIndex].text;
     var selectedCourseId = courseSelector.value;
     var grade;
-    var hesaplamaTipi = document.querySelector('input[name="calculationgrade"]:checked').value;
+    var calc = document.querySelector('input[name="calculationgrade"]:checked').value;
 
-    if (hesaplamaTipi === "10scale") {
+    if (calc === "10scale") {
         grade = calculateTenPointLetterGrade(midterm, final);
-    } else if (hesaplamaTipi === "7scale") {
+    } else if (calc === "7scale") {
         grade = calculateSevenPointLetterGrade(midterm, final);
     }
 
@@ -46,10 +46,10 @@ function studentExists(name, surname, courseName) {
     for (var i = 1; i < rows.length; i++) {
         var cells = rows[i].getElementsByTagName('td');
         if (cells[0].innerHTML === name && cells[1].innerHTML === surname && cells[4].innerHTML === courseName) {
-            return true; // Öğrenci zaten var
+            return true; 
         }
     }
-    return false; // Öğrenci yok
+    return false; 
 }
 
 function addToStudentTable(name, surname, midterm, final, courseName, courseId, letterGrade) {
@@ -290,8 +290,7 @@ function updateCourseSelector2() {
  
    
 
-
-    function searchcourses() {
+   function searchcourses() {
           // Get the input from the search field and convert it to lower case
         var searchInput = document.getElementById('searchInput').value.toLowerCase();
         var studentTableBody = document.getElementById('studentTableBody');
@@ -309,7 +308,7 @@ function updateCourseSelector2() {
             
               // If the course name includes the search input, add the row to the student table body
             if ( courseName.includes(searchInput)) {
-                var newRow = studentTableBody.insertRow(studentTableBody.rows.length);
+                var newRow = studentTableBody.insertRow(-1);
 
                 for (var j = 0; j < 7; j++) {
                     var cell = newRow.insertCell(j);
@@ -320,7 +319,7 @@ function updateCourseSelector2() {
         }
         
     }
-    
+        
     
 
 
