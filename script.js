@@ -395,27 +395,39 @@ function deleteCourse() {
 function updateStudentScores() {
     var nameToUpdate = document.getElementById('name').value;
     var surnameToUpdate = document.getElementById('surname').value;
-    var newMidterm = parseFloat(document.getElementById('midterm').value);
-    var newFinal = parseFloat(document.getElementById('final').value);
+    var newMidterm = document.getElementById('midterm').value;
+    var newFinal = document.getElementById('final').value;
+
+    
+    if (nameToUpdate === '' || surnameToUpdate === '' || newMidterm === '' || newFinal === '') {
+        alert('PLEASE FILL IN THE BLANK');
+        return;
+    }
+    var gradeScale = document.querySelector('input[name="calculationgrade"]:checked').value;
+    
+    
+    updatedLetterGrade = calculateTenPointLetterGrade(midterm,final);
+  
+   
+
+    newMidterm = parseFloat(newMidterm);
+    newFinal = parseFloat(newFinal);
 
     var table = document.getElementById('dataTableStudent').getElementsByTagName('tbody')[0];
     for (var i = 0; i < table.rows.length; i++) {
         var currentName = table.rows[i].cells[0].innerHTML;
         var currentSurname = table.rows[i].cells[1].innerHTML;
 
-      
         if (currentName === nameToUpdate && currentSurname === surnameToUpdate) {
             table.rows[i].cells[2].innerHTML = newMidterm;
             table.rows[i].cells[3].innerHTML = newFinal;
 
-           
-            var updatedLetterGrade = calculateLetterGrade(newMidterm, newFinal);
+            
             table.rows[i].cells[6].innerHTML = updatedLetterGrade;
             break;
         }
     }
 }
-
 
 function searchStudentsByNameAndSurname() {
     var searchInput = document.getElementById('searchInputname').value.toLowerCase();
