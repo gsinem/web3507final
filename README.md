@@ -1,6 +1,7 @@
-web3507final
-Gülsinem Kazanıc 200709056
-https://github.com/gsinem/web3507final
+[
+](https://github.com/gsinem/web3507final)web3507final
+Gülsinem Kazancı 200709056
+
 Student and Course Management System
 This project is a web application for managing students and courses, developed using JavaScript, HTML, and CSS. Users can add or remove students, add or remove courses, calculate students' GPA, and view the list of students who have passed or failed a course.
 
