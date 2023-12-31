@@ -168,17 +168,17 @@ function addToStudentTable(name, surname, midterm, final, courseName, courseId, 
     function addToCourseTable(courseName, courseCode, courseCredit) {
     var table = document.getElementById('dataTableCourse').getElementsByTagName('tbody')[0];
 
-    // Mevcut kurs kodlarını kontrol etmek için döngü
+   // Loop to check existing course codes
     var existingRows = table.rows;
     for (var i = 0; i < existingRows.length; i++) {
         if (existingRows[i].cells[1].textContent === courseCode) {
-            // Eğer kurs kodu zaten varsa uyarı ver ve ekleme yapma
+           
             alert('Course already exist: ' + courseCode);
-            return; // Fonksiyonu sonlandır
+            return; // end of the function
         }
     }
 
-    // Kurs kodu yeni ise, tabloya ekle
+   // If the course code is new, add it to the table
     var newRow = table.insertRow(table.rows.length);
     var cell1 = newRow.insertCell(0);
     var cell2 = newRow.insertCell(1);
